@@ -190,17 +190,22 @@
   }
 
   .faq-link {
-    margin-top: 28px;
-    font-family: 'Space Mono', 'Pretendard Variable', monospace;
-    font-size: 11px;
-    letter-spacing: 0.15em;
-    text-transform: uppercase;
-    color: var(--text-muted);
+    margin-top: 32px;
+    font-family: 'Sora', 'Pretendard Variable', sans-serif;
+    font-weight: 400;
+    font-size: 15px;
+    letter-spacing: -0.005em;
+    color: var(--text-dim);
     text-decoration: none;
-    transition: color 160ms ease;
+    padding-bottom: 4px;
+    border-bottom: 1px solid var(--border);
+    transition: color 160ms ease, border-color 160ms ease;
   }
 
-  .faq-link:hover { color: var(--accent); }
+  .faq-link:hover {
+    color: var(--text);
+    border-bottom-color: var(--accent);
+  }
 
   @media (max-width: 480px) {
     header { padding: 0 20px; }
