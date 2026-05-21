@@ -155,32 +155,58 @@
   .faq-list {
     list-style: none;
     border-top: 1px solid var(--border);
+    counter-reset: faq;
   }
 
   .faq-item {
-    padding: 28px 0;
+    counter-increment: faq;
+    padding: 36px 0;
     border-bottom: 1px solid var(--border);
+    display: grid;
+    grid-template-columns: 52px 1fr;
+    column-gap: 20px;
+    row-gap: 12px;
+  }
+
+  .faq-item::before {
+    content: counter(faq, decimal-leading-zero);
+    font-family: 'Space Mono', 'Pretendard Variable', monospace;
+    font-size: 11px;
+    color: var(--accent-dim);
+    letter-spacing: 0.18em;
+    padding-top: 4px;
+    grid-row: 1 / span 2;
   }
 
   .faq-item h3 {
+    grid-column: 2;
     font-family: 'Sora', 'Pretendard Variable', -apple-system, sans-serif;
     font-weight: 500;
     font-size: 17px;
     line-height: 1.55;
     color: var(--text);
-    margin-bottom: 14px;
     letter-spacing: -0.005em;
   }
 
   .faq-item p {
+    grid-column: 2;
     font-family: 'Sora', 'Pretendard Variable', -apple-system, sans-serif;
     font-weight: 300;
     font-size: 15px;
-    line-height: 1.75;
+    line-height: 1.8;
     color: var(--text-dim);
     white-space: pre-line;
     letter-spacing: -0.003em;
   }
+
+  .faq-item p a {
+    color: var(--accent);
+    text-decoration: none;
+    border-bottom: 1px solid var(--accent-dim);
+    transition: opacity 160ms ease;
+  }
+
+  .faq-item p a:hover { opacity: 0.7; }
 
   .faq-empty {
     padding: 32px 0;
@@ -215,9 +241,15 @@
     .meta { display: none; }
     .page { padding: 48px 24px 40px; }
     .page-subtitle { margin-bottom: 40px; font-size: 14px; }
-    .faq-item { padding: 24px 0; }
+    .faq-item {
+      padding: 28px 0;
+      grid-template-columns: 38px 1fr;
+      column-gap: 14px;
+      row-gap: 10px;
+    }
+    .faq-item::before { font-size: 10px; padding-top: 3px; }
     .faq-item h3 { font-size: 16px; }
-    .faq-item p { font-size: 14px; }
+    .faq-item p { font-size: 14px; line-height: 1.75; }
     .page-footer { padding: 28px 24px 36px; }
   }
 </style>
@@ -255,6 +287,35 @@
     const list = document.querySelector('[data-faq-list]');
     if (!list) return;
 
+    const SAFE_HREF = /^(\/|https?:\/\/|mailto:)/;
+    const LINK_RE = /\[([^\]]+)\]\(([^)]+)\)/g;
+
+    function renderAnswer(text) {
+      const p = document.createElement('p');
+      let lastIndex = 0;
+      let match;
+      LINK_RE.lastIndex = 0;
+      while ((match = LINK_RE.exec(text)) !== null) {
+        if (match.index > lastIndex) {
+          p.appendChild(document.createTextNode(text.slice(lastIndex, match.index)));
+        }
+        const href = match[2];
+        if (SAFE_HREF.test(href)) {
+          const a = document.createElement('a');
+          a.textContent = match[1];
+          a.href = href;
+          p.appendChild(a);
+        } else {
+          p.appendChild(document.createTextNode(match[0]));
+        }
+        lastIndex = LINK_RE.lastIndex;
+      }
+      if (lastIndex < text.length) {
+        p.appendChild(document.createTextNode(text.slice(lastIndex)));
+      }
+      return p;
+    }
+
     fetch('faq.json', { cache: 'no-store' })
       .then(function (res) {
         if (!res.ok) throw new Error('HTTP ' + res.status);
@@ -272,10 +333,8 @@
           li.className = 'faq-item';
           const h3 = document.createElement('h3');
           h3.textContent = item.question || '';
-          const p = document.createElement('p');
-          p.textContent = item.answer || '';
           li.appendChild(h3);
-          li.appendChild(p);
+          li.appendChild(renderAnswer(item.answer || ''));
           frag.appendChild(li);
         });
         list.innerHTML = '';
