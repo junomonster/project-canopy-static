@@ -24,7 +24,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Gowun+Batang:wght@400;700&family=Instrument+Serif:ital@0;1&family=Sora:wght@300;500&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Gowun+Batang:wght@400;700&family=Instrument+Serif:ital@0;1&family=Sora:wght@300;400;500&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
 <link rel="stylesheet" as="style" crossorigin href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable-dynamic-subset.min.css">
 <style>
   :root {
@@ -232,6 +232,18 @@
 
   .faq-item p a:hover { opacity: 0.7; }
 
+  .faq-item p strong {
+    font-weight: 500;
+    color: var(--text);
+  }
+
+  .faq-item p mark {
+    background: linear-gradient(180deg, transparent 58%, rgba(84, 219, 152, 0.22) 58%);
+    color: var(--text);
+    font-weight: 400;
+    padding: 0 1px;
+  }
+
   .faq-empty {
     padding: 32px 0;
     font-family: 'Sora', 'Pretendard Variable', sans-serif;
@@ -324,27 +336,37 @@
     if (!list) return;
 
     const SAFE_HREF = /^(\/|https?:\/\/|mailto:)/;
-    const LINK_RE = /\[([^\]]+)\]\(([^)]+)\)/g;
+    const TOKEN_RE = /\[([^\]]+)\]\(([^)]+)\)|==([^=]+)==|\*\*([^*]+)\*\*/g;
 
     function renderAnswer(text) {
       const p = document.createElement('p');
       let lastIndex = 0;
       let match;
-      LINK_RE.lastIndex = 0;
-      while ((match = LINK_RE.exec(text)) !== null) {
+      TOKEN_RE.lastIndex = 0;
+      while ((match = TOKEN_RE.exec(text)) !== null) {
         if (match.index > lastIndex) {
           p.appendChild(document.createTextNode(text.slice(lastIndex, match.index)));
         }
-        const href = match[2];
-        if (SAFE_HREF.test(href)) {
-          const a = document.createElement('a');
-          a.textContent = match[1];
-          a.href = href;
-          p.appendChild(a);
-        } else {
-          p.appendChild(document.createTextNode(match[0]));
+        if (match[1] !== undefined) {
+          const href = match[2];
+          if (SAFE_HREF.test(href)) {
+            const a = document.createElement('a');
+            a.textContent = match[1];
+            a.href = href;
+            p.appendChild(a);
+          } else {
+            p.appendChild(document.createTextNode(match[0]));
+          }
+        } else if (match[3] !== undefined) {
+          const mark = document.createElement('mark');
+          mark.textContent = match[3];
+          p.appendChild(mark);
+        } else if (match[4] !== undefined) {
+          const strong = document.createElement('strong');
+          strong.textContent = match[4];
+          p.appendChild(strong);
         }
-        lastIndex = LINK_RE.lastIndex;
+        lastIndex = TOKEN_RE.lastIndex;
       }
       if (lastIndex < text.length) {
         p.appendChild(document.createTextNode(text.slice(lastIndex)));
