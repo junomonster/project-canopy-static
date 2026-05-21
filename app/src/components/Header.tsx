@@ -1,21 +1,28 @@
 import { NavLink, Link } from 'react-router-dom';
+import { useTranslation } from 'react-i18next';
 import CanopyMark from './CanopyMark';
+import LanguageSwitcher from './LanguageSwitcher';
 
 export default function Header() {
+  const { t } = useTranslation();
+
   return (
     <header className="site-header">
-      <Link to="/" className="home-link" aria-label="Project Canopy home">
+      <Link to="/" className="home-link" aria-label={t('nav.homeAriaLabel')}>
         <CanopyMark size={28} />
         <span className="brand-text">Project Canopy</span>
       </Link>
-      <nav className="primary-nav" aria-label="Primary">
-        <NavLink to="/faq" className="nav-link" end>
-          FAQ
-        </NavLink>
-        <NavLink to="/join" className="nav-link" end>
-          Join
-        </NavLink>
-      </nav>
+      <div className="header-right">
+        <nav className="primary-nav" aria-label="Primary">
+          <NavLink to="/faq" className="nav-link" end>
+            {t('nav.faq')}
+          </NavLink>
+          <NavLink to="/join" className="nav-link" end>
+            {t('nav.join')}
+          </NavLink>
+        </nav>
+        <LanguageSwitcher />
+      </div>
     </header>
   );
 }

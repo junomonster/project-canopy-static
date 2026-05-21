@@ -1,0 +1,36 @@
+{
+  "lang": {
+    "ko": "KO",
+    "en": "EN",
+    "switchAriaLabel": "Switch language"
+  },
+  "nav": {
+    "faq": "FAQ",
+    "join": "Join",
+    "homeAriaLabel": "Project Canopy home"
+  },
+  "home": {
+    "documentTitle": "Project Canopy - Securing the world's software for the AI era.",
+    "titlePart1": "Securing the world's software",
+    "titlePart2": "for the AI era.",
+    "ctaMain": "Express Interest →",
+    "ctaSub": "Join the initiative",
+    "faqLink": "FAQ →"
+  },
+  "faq": {
+    "documentTitle": "Project Canopy, FAQ",
+    "titlePart1": "Questions",
+    "titlePart2": "and answers.",
+    "loading": "Loading…",
+    "empty": "No questions yet.",
+    "error": "Unable to load FAQ. Try refreshing.",
+    "footerCta": "Express Interest →"
+  },
+  "join": {
+    "documentTitle": "Project Canopy, Join",
+    "label": "Participation Form",
+    "loading": "Loading",
+    "iframeTitle": "Project Canopy - Interest Form",
+    "loaderAriaLabel": "Loading form"
+  }
+}

@@ -1,12 +1,15 @@
 import { useEffect } from 'react';
 import { Link } from 'react-router-dom';
+import { useTranslation } from 'react-i18next';
 import Header from '../components/Header';
 import CanopyMark from '../components/CanopyMark';
 
 export default function Home() {
+  const { t } = useTranslation();
+
   useEffect(() => {
-    document.title = "Project Canopy — Securing the world's software for the AI era.";
-  }, []);
+    document.title = t('home.documentTitle');
+  }, [t]);
 
   return (
     <>
@@ -18,14 +21,14 @@ export default function Home() {
           ariaLabel="Project Canopy"
         />
         <h1 className="hero-title">
-          Securing the world's software <em>for the AI era.</em>
+          {t('home.titlePart1')} <em>{t('home.titlePart2')}</em>
         </h1>
         <Link className="cta" to="/join">
-          <span className="cta-main">Express Interest →</span>
-          <span className="cta-sub">참가 의향 제출</span>
+          <span className="cta-main">{t('home.ctaMain')}</span>
+          <span className="cta-sub">{t('home.ctaSub')}</span>
         </Link>
         <Link className="faq-link" to="/faq">
-          FAQ →
+          {t('home.faqLink')}
         </Link>
       </main>
     </>

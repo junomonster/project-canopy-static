@@ -1,22 +1,33 @@
-import { useEffect, useState } from 'react';
+import { useEffect, useMemo, useState } from 'react';
 import { Link } from 'react-router-dom';
+import { useTranslation } from 'react-i18next';
 import Header from '../components/Header';
 import { renderAnswer } from '../lib/renderAnswer';
+import { normalizeLang } from '../i18n';
 
 interface FaqItem {
   question: string;
   answer: string;
 }
 
+interface FaqData {
+  ko?: { items?: FaqItem[] };
+  en?: { items?: FaqItem[] };
+  items?: FaqItem[];
+}
+
 type Status = 'loading' | 'ready' | 'empty' | 'error';
 
 export default function Faq() {
-  const [items, setItems] = useState<FaqItem[]>([]);
-  const [status, setStatus] = useState<Status>('loading');
+  const { t, i18n } = useTranslation();
+  const lang = normalizeLang(i18n.language);
+
+  const [data, setData] = useState<FaqData | null>(null);
+  const [errored, setErrored] = useState(false);
 
   useEffect(() => {
-    document.title = 'Project Canopy · FAQ';
-  }, []);
+    document.title = t('faq.documentTitle');
+  }, [t]);
 
   useEffect(() => {
     let cancelled = false;
@@ -25,39 +36,56 @@ export default function Faq() {
         if (!res.ok) throw new Error('HTTP ' + res.status);
         return res.json();
       })
-      .then((data: { items?: FaqItem[] }) => {
-        if (cancelled) return;
-        const next = Array.isArray(data.items) ? data.items : [];
-        setItems(next);
-        setStatus(next.length === 0 ? 'empty' : 'ready');
+      .then((json: FaqData) => {
+        if (!cancelled) setData(json);
       })
       .catch(() => {
-        if (cancelled) return;
-        setStatus('error');
+        if (!cancelled) setErrored(true);
       });
     return () => {
       cancelled = true;
     };
   }, []);
 
+  const items = useMemo<FaqItem[] | null>(() => {
+    if (data == null) return null;
+    return (
+      data[lang]?.items ??
+      data.en?.items ??
+      data.ko?.items ??
+      data.items ??
+      []
+    );
+  }, [data, lang]);
+
+  const status: Status = errored
+    ? 'error'
+    : items == null
+      ? 'loading'
+      : items.length === 0
+        ? 'empty'
+        : 'ready';
+
   return (
     <>
       <Header />
       <main className="page">
-        <div className="page-label">Frequently Asked Questions</div>
         <h1 className="page-title">
-          Questions <em>and answers.</em>
+          {t('faq.titlePart1')} <em>{t('faq.titlePart2')}</em>
         </h1>
-        <div className="page-subtitle">자주 묻는 질문</div>
         <ul className="faq-list">
-          {status === 'loading' && <li className="faq-empty">Loading…</li>}
-          {status === 'empty' && <li className="faq-empty">No questions yet.</li>}
+          {status === 'loading' && (
+            <li className="faq-empty">{t('faq.loading')}</li>
+          )}
+          {status === 'empty' && (
+            <li className="faq-empty">{t('faq.empty')}</li>
+          )}
           {status === 'error' && (
-            <li className="faq-empty">Unable to load FAQ. Try refreshing.</li>
+            <li className="faq-empty">{t('faq.error')}</li>
           )}
           {status === 'ready' &&
-            items.map((item, idx) => (
-              <li className="faq-item" key={idx}>
+            items?.map((item, idx) => (
+              <li className="faq-item" key={`${lang}-${idx}`}>
                 <h3>{item.question}</h3>
                 <p>{renderAnswer(item.answer)}</p>
               </li>
@@ -66,7 +94,7 @@ export default function Faq() {
       </main>
       <footer className="page-footer">
         <Link className="footer-link" to="/join">
-          Express Interest →
+          {t('faq.footerCta')}
         </Link>
       </footer>
     </>
