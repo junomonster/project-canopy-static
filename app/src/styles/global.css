@@ -549,11 +549,15 @@ body[data-page="join"] .site-header {
   body[data-page="join"] .primary-nav { gap: 20px; }
   body[data-page="join"] .header-right { gap: 16px; }
   body[data-page="join"] .lang-switcher { padding-left: 16px; }
-  .stage { padding: 18px 10px 10px; }
-  .stage-label { margin-bottom: 12px; font-size: 9px; }
+  .stage { padding: 24px 20px 20px; }
+  .stage-label { margin-bottom: 14px; font-size: 9px; }
   .stage-label::before, .stage-label::after { width: 18px; }
   .card { border-radius: 4px; }
   .loader-mark { width: 48px; height: 48px; }
+}
+
+@media (max-width: 420px) {
+  .stage { padding: 20px 16px 16px; }
 }
 
 @media (max-width: 480px) {
