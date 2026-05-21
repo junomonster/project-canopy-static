@@ -32,6 +32,7 @@
     --text: #e8e8e8;
     --text-dim: #8a8a8a;
     --text-muted: #5a5a5a;
+    --border: #1f1f1f;
     --accent: #54db98;
     --accent-dim: #28d27d;
   }
@@ -54,6 +55,75 @@
   }
 
   ::selection { background: var(--accent); color: #000; }
+
+  header {
+    height: 64px;
+    flex-shrink: 0;
+    background: rgba(10, 10, 10, 0.92);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border-bottom: 1px solid var(--border);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 32px;
+    position: sticky;
+    top: 0;
+    z-index: 2;
+  }
+
+  .home-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 12px;
+    text-decoration: none;
+    color: var(--text);
+    transition: opacity 160ms ease;
+  }
+
+  .home-link:hover { opacity: 0.7; }
+  .home-link svg { display: block; }
+
+  .home-link .brand-text {
+    font-family: 'Space Mono', 'Pretendard Variable', monospace;
+    font-size: 12px;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--text);
+    font-weight: 700;
+  }
+
+  .primary-nav {
+    display: flex;
+    align-items: center;
+    gap: 28px;
+  }
+
+  .nav-link {
+    font-family: 'Space Mono', 'Pretendard Variable', monospace;
+    font-size: 12px;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--text-dim);
+    text-decoration: none;
+    transition: color 160ms ease;
+    position: relative;
+    padding: 4px 0;
+  }
+
+  .nav-link:hover { color: var(--accent); }
+
+  .nav-link[aria-current="page"] { color: var(--text); }
+
+  .nav-link[aria-current="page"]::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: -2px;
+    height: 1px;
+    background: var(--accent);
+  }
 
   .hero {
     flex: 1;
@@ -132,27 +202,38 @@
 
   .faq-link:hover { color: var(--accent); }
 
-  .brand-label {
-    font-family: 'Space Mono', 'Pretendard Variable', monospace;
-    font-size: 11px;
-    letter-spacing: 0.18em;
-    text-transform: uppercase;
-    color: var(--text-muted);
-    text-align: center;
-    padding: 0 32px 40px;
-  }
-
   @media (max-width: 480px) {
+    header { padding: 0 20px; }
+    .primary-nav { gap: 20px; }
     .hero { padding: 32px 24px; }
     .canopy-mark { width: 64px; height: 64px; margin-bottom: 40px; }
     h1 { margin-bottom: 48px; }
     .cta { padding: 20px 32px; }
     .faq-link { margin-top: 22px; }
-    .brand-label { padding: 0 24px 28px; }
+  }
+
+  @media (max-width: 360px) {
+    .home-link .brand-text { display: none; }
   }
 </style>
 </head>
 <body>
+
+<header>
+  <a class="home-link" href="/" aria-label="Project Canopy home">
+    <svg width="28" height="28" viewBox="0 0 52 52" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+      <circle cx="26" cy="26" r="25" stroke="#54db98" stroke-width="1"/>
+      <path d="M8 34 Q26 8 44 34" stroke="#54db98" stroke-width="1" stroke-linecap="round" fill="none"/>
+      <path d="M12 34 Q26 16 40 34" stroke="#54db98" stroke-width="1" stroke-linecap="round" fill="none" opacity="0.6"/>
+      <line x1="8" y1="34" x2="44" y2="34" stroke="#54db98" stroke-width="1"/>
+    </svg>
+    <span class="brand-text">Project Canopy</span>
+  </a>
+  <nav class="primary-nav" aria-label="Primary">
+    <a class="nav-link" href="/faq/">FAQ</a>
+    <a class="nav-link" href="/join/">Join</a>
+  </nav>
+</header>
 
 <main class="hero">
   <svg class="canopy-mark" viewBox="0 0 52 52" fill="none" xmlns="http://www.w3.org/2000/svg" aria-label="Project Canopy">
@@ -164,16 +245,13 @@
 
   <h1>Securing the world's software <em>for the AI era.</em></h1>
 
-  <a class="cta" href="join/">
+  <a class="cta" href="/join/">
     <span class="cta-main">Express Interest →</span>
     <span class="cta-sub">참가 의향 제출</span>
   </a>
 
-  <a class="faq-link" href="faq/">FAQ →</a>
+  <a class="faq-link" href="/faq/">FAQ →</a>
 </main>
 
-<div class="brand-label">Project Canopy</div>
-
-<!-- 1 -->
 </body>
 </html>
