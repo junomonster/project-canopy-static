@@ -1,0 +1,36 @@
+{
+  "lang": {
+    "ko": "KO",
+    "en": "EN",
+    "switchAriaLabel": "언어 변경"
+  },
+  "nav": {
+    "faq": "FAQ",
+    "join": "Join",
+    "homeAriaLabel": "Project Canopy 홈으로"
+  },
+  "home": {
+    "documentTitle": "Project Canopy - Securing the world's software for the AI era.",
+    "titlePart1": "Securing the world's software",
+    "titlePart2": "for the AI era.",
+    "ctaMain": "참여 의향 제출 →",
+    "ctaSub": "Express Interest",
+    "faqLink": "FAQ →"
+  },
+  "faq": {
+    "documentTitle": "Project Canopy, FAQ",
+    "titlePart1": "Questions",
+    "titlePart2": "and answers.",
+    "loading": "불러오는 중…",
+    "empty": "아직 질문이 없습니다.",
+    "error": "FAQ를 불러올 수 없습니다. 새로고침해 주세요.",
+    "footerCta": "참여 의향 제출 →"
+  },
+  "join": {
+    "documentTitle": "Project Canopy, Join",
+    "label": "참여 의향서",
+    "loading": "불러오는 중",
+    "iframeTitle": "Project Canopy - 참여 의향서",
+    "loaderAriaLabel": "양식 불러오는 중"
+  }
+}

@@ -1,18 +1,20 @@
 import { useCallback, useEffect, useState } from 'react';
+import { useTranslation } from 'react-i18next';
 import Header from '../components/Header';
 import CanopyMark from '../components/CanopyMark';
 
 const FORM_URL =
-  'https://docs.google.com/forms/d/e/1FAIpQLSeO7Ypqiawf5NGQD1uOqIhcoXFF_NnwHeLnmhs5vt5AI8PVKg/viewform?embedded=true';
+  'https://docs.google.com/forms/d/e/1FAIpQLSdmrxjV1jVPBilCyV3mim3-c7AQNogU9rZZ2mDYoS2EPYiLqA/viewform?embedded=true';
 
 type LoaderPhase = 'visible' | 'hiding' | 'gone';
 
 export default function Join() {
+  const { t } = useTranslation();
   const [phase, setPhase] = useState<LoaderPhase>('visible');
 
   useEffect(() => {
-    document.title = 'Project Canopy · Join';
-  }, []);
+    document.title = t('join.documentTitle');
+  }, [t]);
 
   useEffect(() => {
     document.body.dataset.page = 'join';
@@ -32,25 +34,25 @@ export default function Join() {
 
   useEffect(() => {
     if (phase !== 'hiding') return;
-    const t = window.setTimeout(() => setPhase('gone'), 500);
-    return () => window.clearTimeout(t);
+    const timer = window.setTimeout(() => setPhase('gone'), 500);
+    return () => window.clearTimeout(timer);
   }, [phase]);
 
   return (
     <>
       <Header />
       <div className="stage">
-        <div className="stage-label">Participation Form</div>
+        <div className="stage-label">{t('join.label')}</div>
         <div className="card">
           {phase !== 'gone' && (
             <div
               className={`loader${phase === 'hiding' ? ' hidden' : ''}`}
               role="status"
-              aria-label="Loading form"
+              aria-label={t('join.loaderAriaLabel')}
             >
               <CanopyMark size={56} className="loader-mark" stroke="#28d27d" />
               <div className="loader-label">
-                Loading
+                {t('join.loading')}
                 <span className="dots">
                   <span>.</span>
                   <span>.</span>
@@ -61,7 +63,7 @@ export default function Join() {
           )}
           <iframe
             src={FORM_URL}
-            title="Project Canopy — Interest Form"
+            title={t('join.iframeTitle')}
             loading="lazy"
             referrerPolicy="no-referrer-when-downgrade"
             onLoad={beginHide}
