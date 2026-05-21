@@ -114,6 +114,23 @@ body[data-page="join"] .site-header {
   background: var(--accent);
 }
 
+.nav-cta {
+  padding: 7px 16px;
+  border: 1px solid var(--accent);
+  color: var(--text);
+  transition: background 160ms ease, color 160ms ease, border-color 160ms ease;
+}
+
+.nav-cta:hover,
+.nav-cta[aria-current="page"] {
+  background: var(--accent);
+  color: #000;
+}
+
+.nav-cta[aria-current="page"]::after {
+  display: none;
+}
+
 .header-right {
   display: flex;
   align-items: center;
