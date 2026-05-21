@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Project Canopy — Securing the world's software for the AI era.</title>
+<meta name="description" content="Securing the world's software for the AI era. Enterprise-scale AI defense, available to anyone who ships code.">
+<meta name="theme-color" content="#0a0a0a">
+
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Project Canopy">
+<meta property="og:title" content="Project Canopy">
+<meta property="og:description" content="Securing the world's software for the AI era. Enterprise-scale AI defense, available to anyone who ships code.">
+<meta property="og:image" content="https://option-a.project-canopy.com/og.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="Project Canopy — Securing the world's software for the AI era.">
+
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Project Canopy">
+<meta name="twitter:description" content="Securing the world's software for the AI era.">
+<meta name="twitter:image" content="https://option-a.project-canopy.com/og.png">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Gowun+Batang:wght@400;700&family=Instrument+Serif:ital@0;1&family=Sora:wght@300;500&family=Space+Mono:wght@400&display=swap" rel="stylesheet">
+<link rel="stylesheet" as="style" crossorigin href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable-dynamic-subset.min.css">
+<style>
+  :root {
+    --bg: #0a0a0a;
+    --text: #e8e8e8;
+    --text-dim: #8a8a8a;
+    --text-muted: #5a5a5a;
+    --accent: #54db98;
+    --accent-dim: #28d27d;
+  }
+
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+
+  html, body { min-height: 100%; }
+
+  body {
+    background: var(--bg);
+    color: var(--text);
+    font-family: 'Sora', 'Pretendard Variable', -apple-system, BlinkMacSystemFont, sans-serif;
+    font-weight: 300;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    letter-spacing: -0.005em;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+  }
+
+  ::selection { background: var(--accent); color: #000; }
+
+  .hero {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 48px 32px;
+    text-align: center;
+  }
+
+  .canopy-mark {
+    width: 80px;
+    height: 80px;
+    margin-bottom: 56px;
+    opacity: 0.95;
+  }
+
+  h1 {
+    font-family: 'Instrument Serif', 'Gowun Batang', serif;
+    font-weight: 400;
+    font-size: clamp(40px, 6.4vw, 84px);
+    line-height: 1.04;
+    letter-spacing: -0.02em;
+    max-width: 14ch;
+    margin-bottom: 72px;
+  }
+
+  h1 em {
+    font-style: italic;
+    color: var(--text-dim);
+  }
+
+  .cta {
+    display: inline-flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 6px;
+    padding: 22px 44px;
+    border: 1px solid var(--accent);
+    color: var(--text);
+    text-decoration: none;
+    background: transparent;
+    transition: background 160ms ease, color 160ms ease, transform 160ms ease;
+  }
+
+  .cta:hover { background: var(--accent); color: #000; }
+  .cta:hover .cta-sub { color: rgba(0, 0, 0, 0.6); }
+
+  .cta-main {
+    font-family: 'Sora', 'Pretendard Variable', sans-serif;
+    font-weight: 500;
+    font-size: 17px;
+    letter-spacing: 0.01em;
+  }
+
+  .cta-sub {
+    font-family: 'Space Mono', 'Pretendard Variable', monospace;
+    font-size: 11px;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: var(--text-dim);
+    transition: color 160ms ease;
+  }
+
+  .faq-link {
+    margin-top: 28px;
+    font-family: 'Space Mono', 'Pretendard Variable', monospace;
+    font-size: 11px;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: var(--text-muted);
+    text-decoration: none;
+    transition: color 160ms ease;
+  }
+
+  .faq-link:hover { color: var(--accent); }
+
+  .brand-label {
+    font-family: 'Space Mono', 'Pretendard Variable', monospace;
+    font-size: 11px;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--text-muted);
+    text-align: center;
+    padding: 0 32px 40px;
+  }
+
+  @media (max-width: 480px) {
+    .hero { padding: 32px 24px; }
+    .canopy-mark { width: 64px; height: 64px; margin-bottom: 40px; }
+    h1 { margin-bottom: 48px; }
+    .cta { padding: 20px 32px; }
+    .faq-link { margin-top: 22px; }
+    .brand-label { padding: 0 24px 28px; }
+  }
+</style>
+</head>
+<body>
+
+<main class="hero">
+  <svg class="canopy-mark" viewBox="0 0 52 52" fill="none" xmlns="http://www.w3.org/2000/svg" aria-label="Project Canopy">
+    <circle cx="26" cy="26" r="25" stroke="#54db98" stroke-width="1"/>
+    <path d="M8 34 Q26 8 44 34" stroke="#54db98" stroke-width="1" stroke-linecap="round" fill="none"/>
+    <path d="M12 34 Q26 16 40 34" stroke="#54db98" stroke-width="1" stroke-linecap="round" fill="none" opacity="0.6"/>
+    <line x1="8" y1="34" x2="44" y2="34" stroke="#54db98" stroke-width="1"/>
+  </svg>
+
+  <h1>Securing the world's software <em>for the AI era.</em></h1>
+
+  <a class="cta" href="join/">
+    <span class="cta-main">Express Interest →</span>
+    <span class="cta-sub">참가 의향 제출</span>
+  </a>
+
+  <a class="faq-link" href="faq/">FAQ →</a>
+</main>
+
+<div class="brand-label">Project Canopy</div>
+
+</body>
+</html>
