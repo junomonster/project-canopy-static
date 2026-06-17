@@ -15,7 +15,8 @@
     "titlePart2": "for the AI era.",
     "ctaMain": "Express Interest →",
     "ctaSub": "Join the initiative",
-    "faqLink": "FAQ →"
+    "faqLink": "FAQ →",
+    "pressLink": "Read press release →"
   },
   "faq": {
     "documentTitle": "Project Canopy, FAQ",
@@ -25,6 +26,13 @@
     "empty": "No questions yet.",
     "error": "Unable to load FAQ. Try refreshing.",
     "footerCta": "Express Interest →"
+  },
+  "press": {
+    "eyebrow": "PRESS",
+    "title": "Press Release",
+    "description": "Project Canopy's official press release is now live.",
+    "close": "Close",
+    "dontShowToday": "Don't show today"
   },
   "join": {
     "documentTitle": "Project Canopy, Join",

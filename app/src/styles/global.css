@@ -211,6 +211,170 @@ body[data-page="join"] .site-header {
   color: var(--accent);
 }
 
+/* Modal — generic dialog */
+.modal-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.15);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 32px 24px;
+  z-index: 100;
+  animation: modal-overlay-in 240ms ease-out;
+}
+
+.modal {
+  position: relative;
+  background: var(--bg-elev);
+  border: 1px solid var(--border);
+  border-radius: 6px;
+  max-width: 460px;
+  width: 100%;
+  padding: 48px 40px 40px;
+  box-shadow:
+    0 0 0 1px rgba(84, 219, 152, 0.08),
+    0 24px 64px rgba(0, 0, 0, 0.6);
+  animation: modal-rise 320ms cubic-bezier(0.2, 0.8, 0.2, 1);
+}
+
+@keyframes modal-overlay-in {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@keyframes modal-rise {
+  from { opacity: 0; transform: translateY(16px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.modal-close {
+  position: absolute;
+  top: 14px;
+  right: 14px;
+  width: 32px;
+  height: 32px;
+  border: 0;
+  background: none;
+  color: var(--text-muted);
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 4px;
+  transition: color 160ms ease, background 160ms ease;
+}
+
+.modal-close:hover {
+  color: var(--text);
+  background: rgba(255, 255, 255, 0.05);
+}
+
+.modal-close svg { display: block; }
+
+.modal-eyebrow {
+  font-family: 'Pretendard Variable', 'Sora', sans-serif;
+  font-weight: 600;
+  font-size: 11px;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--accent);
+  margin-bottom: 14px;
+}
+
+.modal-title {
+  font-family: 'Pretendard Variable', 'Sora', sans-serif;
+  font-weight: 600;
+  font-size: clamp(22px, 3.4vw, 28px);
+  line-height: 1.25;
+  letter-spacing: -0.01em;
+  color: var(--text);
+  margin-bottom: 16px;
+}
+
+.modal-description {
+  font-family: 'Pretendard Variable', 'Sora', sans-serif;
+  font-weight: 400;
+  font-size: 15px;
+  line-height: 1.6;
+  color: var(--text-dim);
+  margin-bottom: 28px;
+}
+
+.modal-actions {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.modal-cta {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 12px 24px;
+  border: 1px solid var(--accent);
+  color: var(--text);
+  text-decoration: none;
+  font-family: 'Pretendard Variable', 'Sora', sans-serif;
+  font-weight: 500;
+  font-size: 14px;
+  letter-spacing: -0.005em;
+  transition: background 160ms ease, color 160ms ease;
+}
+
+.modal-cta:hover {
+  background: var(--accent);
+  color: #000;
+}
+
+.modal-dismiss {
+  background: none;
+  border: 0;
+  margin-top: 18px;
+  width: 100%;
+  padding: 6px;
+  font-family: 'Pretendard Variable', 'Sora', sans-serif;
+  font-weight: 400;
+  font-size: 13px;
+  letter-spacing: -0.005em;
+  color: var(--text-muted);
+  cursor: pointer;
+  text-align: center;
+  transition: color 160ms ease;
+}
+
+.modal-dismiss:hover { color: var(--text-dim); }
+
+/* Home press pill */
+.press-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+  padding: 7px 16px;
+  border: 1px solid var(--border);
+  border-radius: 100px;
+  color: var(--text-dim);
+  text-decoration: none;
+  font-family: 'Sora', 'Pretendard Variable', sans-serif;
+  font-size: 13px;
+  letter-spacing: -0.005em;
+  margin-bottom: 48px;
+  transition: border-color 160ms ease, color 160ms ease;
+}
+
+.press-pill:hover {
+  border-color: var(--accent);
+  color: var(--text);
+}
+
+.press-pill-eyebrow {
+  font-family: 'Space Mono', 'Pretendard Variable', monospace;
+  font-size: 10px;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--accent);
+}
+
 /* Home — hero */
 .hero {
   flex: 1;
@@ -568,6 +732,7 @@ body[data-page="join"] .site-header {
   .lang-switcher-item { gap: 4px; }
 
   .hero { padding: 32px 24px; }
+  .press-pill { margin-bottom: 32px; font-size: 12px; padding: 6px 14px; }
   .canopy-mark { width: 64px; height: 64px; margin-bottom: 40px; }
   .hero-title { margin-bottom: 48px; }
   .cta { padding: 20px 32px; }
@@ -575,6 +740,12 @@ body[data-page="join"] .site-header {
 
   .page { padding: 48px 24px 40px; }
   .page-title { margin-bottom: 40px; }
+
+  .modal-overlay { padding: 16px; }
+  .modal { padding: 40px 24px 28px; }
+  .modal-title { font-size: 24px; }
+  .modal-description { font-size: 14px; margin-bottom: 24px; }
+  .modal-cta { padding: 11px 20px; font-size: 13px; }
   .faq-item {
     padding: 28px 0;
     grid-template-columns: 38px 1fr;

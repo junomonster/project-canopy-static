@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
 import Header from '../components/Header';
 import { renderAnswer } from '../lib/renderAnswer';
-import { normalizeLang } from '../i18n';
+import { useCurrentLang } from '../i18n/useCurrentLang';
 
 interface FaqItem {
   question: string;
@@ -19,8 +19,8 @@ interface FaqData {
 type Status = 'loading' | 'ready' | 'empty' | 'error';
 
 export default function Faq() {
-  const { t, i18n } = useTranslation();
-  const lang = normalizeLang(i18n.language);
+  const { t } = useTranslation();
+  const lang = useCurrentLang();
 
   const [data, setData] = useState<FaqData | null>(null);
   const [errored, setErrored] = useState(false);
