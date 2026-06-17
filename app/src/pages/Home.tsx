@@ -4,12 +4,10 @@ import { useTranslation } from 'react-i18next';
 import Header from '../components/Header';
 import CanopyMark from '../components/CanopyMark';
 import PressReleaseModal from '../components/PressReleaseModal';
-import { PRESS_LINKS } from '../lib/pressLinks';
-import { useCurrentLang } from '../i18n/useCurrentLang';
+import { PRESS_URL } from '../lib/pressLinks';
 
 export default function Home() {
   const { t } = useTranslation();
-  const locale = useCurrentLang();
 
   useEffect(() => {
     document.title = t('home.documentTitle');
@@ -21,7 +19,7 @@ export default function Home() {
       <main className="hero">
         <a
           className="press-pill"
-          href={PRESS_LINKS[locale]}
+          href={PRESS_URL}
           target="_blank"
           rel="noopener noreferrer"
         >

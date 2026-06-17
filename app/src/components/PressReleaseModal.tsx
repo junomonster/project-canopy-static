@@ -1,14 +1,9 @@
 import { useEffect, useState } from 'react';
 import { useTranslation } from 'react-i18next';
-import { PRESS_LINKS } from '../lib/pressLinks';
+import { PRESS_URL } from '../lib/pressLinks';
 
 const OPEN_DELAY_MS = 500;
 const DISMISS_KEY = 'canopy.press.dismissedUntil';
-
-const PRESS_BUTTONS = [
-  { code: 'ko', label: '보도자료 확인하기 (KO) →', url: PRESS_LINKS.ko },
-  { code: 'en', label: 'Read Press Release (EN) →', url: PRESS_LINKS.en },
-] as const;
 
 function readDismissedUntil(): number {
   try {
@@ -101,17 +96,14 @@ export default function PressReleaseModal() {
         </h2>
         <p className="modal-description">{t('press.description')}</p>
         <div className="modal-actions">
-          {PRESS_BUTTONS.map((link) => (
-            <a
-              key={link.code}
-              className="modal-cta"
-              href={link.url}
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              {link.label}
-            </a>
-          ))}
+          <a
+            className="modal-cta"
+            href={PRESS_URL}
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            {t('press.cta')}
+          </a>
         </div>
         <button
           type="button"
