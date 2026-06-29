@@ -10,20 +10,12 @@
         "answer": "보안 역량을 강화하고자 하는 ==모든 조직==을 위한 프로젝트입니다. **글로벌 기술 기업**, **금융**, **IT 서비스 기업**, **공공 인프라 운영기관**, **OSS 메인테이너**, **국가 CERT 및 연구기관** 등 다양한 주체가 참여할 수 있습니다."
       },
       {
-        "question": "언제 시작되나요?",
-        "answer": "==2026년 6월 공식 런칭==을 목표로 준비 중이며, 현재 **초기 참여 멤버**를 모집하고 있습니다."
-      },
-      {
         "question": "참여 시 어떤 혜택이 있나요?",
         "answer": "프로젝트 참여를 통해 **AI 기반 취약점 분석 엔진**의 ==선제적 보안 인사이트==를 제공받을 수 있으며, 글로벌 기술 생태계 전반의 보안 역량 강화에 기여할 수 있습니다. 또한, 참여 조직 간 협업과 정보 공유를 통해 보안 위협에 대한 **공동 대응**이 가능해집니다."
       },
       {
         "question": "비용이 발생하나요?",
         "answer": "==참여에 별도의 비용은 발생하지 않습니다==. 펀딩 출연은 **의무가 아니며**, 각 조직의 역량과 자원에 맞춰 **자금/인력/인프라/데이터/연구 협력** 등 다양한 형태로 **선택적으로** 기여하실 수 있습니다."
-      },
-      {
-        "question": "Project Canopy에 참여하려면 Xint를 구매해야 하나요?",
-        "answer": "아니요. ==Xint 구매 의무는 없습니다==. 현 단계에서 Xint는 Canopy 이니셔티브의 안정적 출범을 위한 **마중물** 역할이며, Canopy는 본질적으로 **특정 기업이나 단일 기술에 종속되지 않는 구조**입니다. 향후 국내/외 보안 솔루션의 기술력을 연계하여 **다자 협력 체계**를 구축하는 것을 지향합니다."
       },
       {
         "question": "어떻게 참여할 수 있나요?",
@@ -36,6 +28,22 @@
       {
         "question": "후속 세부 사항은 언제/어떻게 확인할 수 있나요?",
         "answer": "**초기 참여 멤버** 모집 이후 **공식 런칭**과 함께 단계적으로 공개될 예정입니다. 의향서를 제출해 주신 분들께는 **거버넌스 구조**, **기금 운용**, **참여 방식** 등 세부 내용을 ==우선적으로 안내==드립니다."
+      },
+      {
+        "question": "Project Canopy에 참여하려면 Xint를 구매해야 하나요?",
+        "answer": "아니요. ==Xint 구매 의무는 없습니다==. 현 단계에서 Xint는 Canopy 이니셔티브의 안정적 출범을 위한 **마중물** 역할이며, Canopy는 본질적으로 **특정 기업이나 단일 기술에 종속되지 않는 구조**입니다. 향후 국내/외 보안 솔루션의 기술력을 연계하여 **다자 협력 체계**를 구축하는 것을 지향합니다."
+      },
+      {
+        "question": "Xint를 구매하는 것과, Project Canopy에 참여하는 것은 무엇이 다른가요?",
+        "answer": "캐노피는 ==오픈소스와 민생 및 공공 인프라==에 대한 취약점 점검을 목표로 합니다. 따라서, 캐노피는 **분석 대상을 오픈소스와 민생 및 공공 인프라에 한정**하고 있습니다. 하지만, Xint를 구매하는 경우 각 고객사(기업 또는 기관)에서 **분석 대상을 자유롭게 선택**하여 취약점을 개선할 수 있습니다.\n\n정리하면, 기업에서 ==자체적으로 개발한 서비스나 인프라==를 점검하길 희망한다면 **Xint 구매**를 추천드립니다. 기업에서 ==활용하고 있는 오픈소스==에 대한 취약점 점검을 목표로 한다면 **캐노피 참여**를 추천드립니다."
+      },
+      {
+        "question": "취약점 분석 신청은 언제, 어떻게 진행하면 되나요?",
+        "answer": "취약점 분석 신청은 ==매달 2주차 금요일==까지, **별도 안내드리는 신청 양식**에 따라 제출하시면 됩니다. 분석 선정 여부 및 분석 순위는 ==익월 1주차==에 공개됩니다."
+      },
+      {
+        "question": "취약점 분석 결과는 어디서, 어떻게 확인할 수 있나요?",
+        "answer": "취약점 분석 결과는 **별도의 플랫폼**을 통해 안내드릴 예정입니다. (==7월 중순 이후==)"
       },
       {
         "question": "추가 문의는 어디로 하나요?",
@@ -54,20 +62,12 @@
         "answer": "Built for ==any organization== seeking to strengthen its security posture. **Global technology companies**, **financial institutions**, **IT service providers**, **public infrastructure operators**, **OSS maintainers**, **national CERTs**, and **research organizations** are all welcome to participate."
       },
       {
-        "question": "When does it launch?",
-        "answer": "We're targeting an ==official launch in June 2026== and are now inviting organizations to join as **founding members**."
-      },
-      {
         "question": "What are the benefits of participating?",
         "answer": "Participants receive ==proactive security insights== from our **AI-powered vulnerability analysis engine** and contribute to strengthening security across the global technology ecosystem. Cross-organizational collaboration also enables a **collective response** to emerging threats."
       },
       {
         "question": "Is there a cost to participate?",
         "answer": "==No participation fee==. Funding contributions are **not required**; organizations may contribute **funding, talent, infrastructure, data, or research partnerships** based on their capacity and resources."
-      },
-      {
-        "question": "Do I need to purchase Xint to participate in Project Canopy?",
-        "answer": "No, ==Xint is not required==. At this stage, Xint provides the **initial capacity** to get Canopy off the ground, but Canopy is structurally **independent of any single company or technology**. Going forward, we aim to integrate security solutions from Korea and abroad into a **multi-party collaboration framework**."
       },
       {
         "question": "How can I participate?",
@@ -80,6 +80,22 @@
       {
         "question": "When and how will further details be shared?",
         "answer": "Detailed information will be released in stages, starting once **founding members** are confirmed and continuing through the **official launch**. Those who submit an interest form will be the ==first to receive details== on **governance structure**, **fund management**, and **participation models**."
+      },
+      {
+        "question": "Do I need to purchase Xint to participate in Project Canopy?",
+        "answer": "No, ==Xint is not required==. At this stage, Xint provides the **initial capacity** to get Canopy off the ground, but Canopy is structurally **independent of any single company or technology**. Going forward, we aim to integrate security solutions from Korea and abroad into a **multi-party collaboration framework**."
+      },
+      {
+        "question": "What's the difference between purchasing Xint and participating in Project Canopy?",
+        "answer": "Project Canopy focuses on vulnerability assessment for ==open-source software and critical civic and public infrastructure==, and its analysis scope is **limited to OSS and civic/public infrastructure**. Purchasing Xint, on the other hand, allows each customer organization to **freely choose its analysis targets** for remediation.\n\nIn short, if you want to assess your own ==in-house services or infrastructure==, **purchasing Xint** is the right choice. If your goal is to assess the security of the ==open-source software your organization uses==, **joining Project Canopy** is the better fit."
+      },
+      {
+        "question": "When and how can I apply for vulnerability analysis?",
+        "answer": "Submit your application by the ==second Friday of each month== using the **dedicated application form** that will be shared separately. Selection results and analysis priority will be announced ==in the first week of the following month==."
+      },
+      {
+        "question": "Where and how can I check vulnerability analysis results?",
+        "answer": "Analysis results will be shared via a **dedicated platform**. (==Available from mid-July==)"
       },
       {
         "question": "Where can I direct further inquiries?",
