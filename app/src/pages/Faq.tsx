@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
 import Header from '../components/Header';
 import { renderAnswer } from '../lib/renderAnswer';
+import { injectJsonLd, stripAnswerMarkers } from '../lib/jsonLd';
 import { useCurrentLang } from '../i18n/useCurrentLang';
 
 interface FaqItem {
@@ -65,6 +66,24 @@ export default function Faq() {
       : items.length === 0
         ? 'empty'
         : 'ready';
+
+  useEffect(() => {
+    if (!items || items.length === 0) return;
+    return injectJsonLd('faq-jsonld', {
+      '@context': 'https://schema.org',
+      '@type': 'FAQPage',
+      '@id': 'https://project-canopy.com/faq#faqpage',
+      inLanguage: lang,
+      mainEntity: items.map((item) => ({
+        '@type': 'Question',
+        name: item.question,
+        acceptedAnswer: {
+          '@type': 'Answer',
+          text: stripAnswerMarkers(item.answer),
+        },
+      })),
+    });
+  }, [items, lang]);
 
   return (
     <>
