@@ -6,8 +6,21 @@
   },
   "nav": {
     "faq": "FAQ",
+    "blog": "Blog",
     "join": "Join",
     "homeAriaLabel": "Project Canopy 홈으로"
+  },
+  "blog": {
+    "documentTitle": "Project Canopy, Blog",
+    "titlePart1": "Research",
+    "titlePart2": "from Project Canopy",
+    "empty": "아직 게시글이 없습니다.",
+    "readingTime": "{{count}}분 읽기",
+    "tocLabel": "목차",
+    "tocTop": "맨 위로",
+    "backToList": "블로그 목록",
+    "notFoundTitle": "글을 찾을 수 없습니다",
+    "notFoundBody": "요청하신 게시글이 존재하지 않거나 이동되었습니다."
   },
   "home": {
     "documentTitle": "Project Canopy - Securing the world's software for the AI era.",

@@ -6,8 +6,21 @@
   },
   "nav": {
     "faq": "FAQ",
+    "blog": "Blog",
     "join": "Join",
     "homeAriaLabel": "Project Canopy home"
+  },
+  "blog": {
+    "documentTitle": "Project Canopy, Blog",
+    "titlePart1": "Research",
+    "titlePart2": "from Project Canopy",
+    "empty": "No posts yet.",
+    "readingTime": "{{count}} min read",
+    "tocLabel": "Contents",
+    "tocTop": "Back to top",
+    "backToList": "All posts",
+    "notFoundTitle": "Post not found",
+    "notFoundBody": "The post you requested doesn't exist or has moved."
   },
   "home": {
     "documentTitle": "Project Canopy - Securing the world's software for the AI era.",

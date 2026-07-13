@@ -5,6 +5,8 @@ import { normalizeLang } from './i18n';
 import Home from './pages/Home';
 import Faq from './pages/Faq';
 import Join from './pages/Join';
+import Blog from './pages/Blog';
+import BlogPost from './pages/BlogPost';
 
 export default function App() {
   const { i18n } = useTranslation();
@@ -17,6 +19,8 @@ export default function App() {
     <Routes>
       <Route path="/" element={<Home />} />
       <Route path="/faq" element={<Faq />} />
+      <Route path="/blog" element={<Blog />} />
+      <Route path="/blog/:slug" element={<BlogPost />} />
       <Route path="/join" element={<Join />} />
       <Route path="*" element={<Home />} />
     </Routes>
