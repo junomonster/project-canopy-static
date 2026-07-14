@@ -25,8 +25,6 @@ Project Canopy의 첫 번째 프로젝트는 대한민국 정부가 주도하여
 
 ![취약점 유형별 심각도 분포 (제보 990건)](/blog/project-canopy-egovframework-990-vulnerabilities-and-patches/overview-severity.svg)
 
-![컴포넌트별 제보 취약점 분포 (common-components 860건 · msa-common-components 130건)](/blog/project-canopy-egovframework-990-vulnerabilities-and-patches/findings-by-component.svg)
-
 집계된 수치는 LLM이 생성한 가공되지 않은 날 것 그대로의 결과물이 아니라, 고도화된 분석 엔진을 거쳐 오탐(False Positive) 가능성이 높은 항목을 시스템 차원에서 선제적으로 걸러낸 정제 데이터입니다. 물론 향후 전문가의 손을 거쳐 더 정확한 검증(Triage)을 거쳐야 하겠지만, 한 가지 사실만큼은 명확합니다. 최소한 취약점을 탐지하는 단계만큼은 AI 분석 기술이 압도적인 우위를 점하는 시대가 왔다는 점입니다. 사람이 수개월을 매달려도 다 보지 못할 방대한 코드에서, 오직 시스템 분석만으로 악용 가능한 수많은 보안 취약점 후보를 찾아냈습니다. 이제 진짜 과제는 다음 단계에 있습니다. "이 방대한 취약점 후보군을 누가 꼼꼼히 선별(Triage)하고, 또 어떻게 고칠 것인가"에 대한 답을 찾아야 합니다.
 
 ## 주요 취약점 사례
